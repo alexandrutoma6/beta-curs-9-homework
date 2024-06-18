@@ -4,15 +4,25 @@ public class Person {
 
     private final String name;
     private final Integer age;
+    private Boolean isEmployed;
     private String position;
 
     public Person(String name, Integer age) {
         this.name = name;
         this.age = age;
+        this.isEmployed = false;
+    }
+
+    public Person(String name, Integer age, Boolean isEmployed, String position) {
+        this.name = name;
+        this.age = age;
+        this.isEmployed = isEmployed;
+        this.position = position;
     }
 
     public void setPosition(String position) {
         this.position = position;
+        this.isEmployed = true;
     }
 
     public String getName() {
@@ -24,7 +34,11 @@ public class Person {
     }
 
     public String getPosition() {
-        return position;
+        if(isEmployed){
+            return position;
+        }else{
+            return "The person is not employed!";
+        }
     }
 
     public String toString(){
